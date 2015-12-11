@@ -1,0 +1,41 @@
+<body>
+
+<!-- PULL IN THE POLL CREATION FORM -->
+<!-- LOOP OVER POLLS AND SHOW EACH -->
+<div class="configContainer panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Predefined Configs</h3>
+    </div>
+        {{ #each configs }}
+        {{ >config }}
+        {{ /each }}
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="appPanel panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Config Form</h3>
+                </div>
+                {{#with formData}}
+                    {{ > newConfigForm }}
+                {{/with}}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="appPanel panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Output</h3>
+                </div>
+                <div class="output">
+                    {{#each output}}
+                        <p>{{message}}</p>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>

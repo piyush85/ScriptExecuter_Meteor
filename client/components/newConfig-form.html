@@ -1,0 +1,42 @@
+<template name="newConfigForm">
+    <form class="configForm">
+        <div class="form-group">
+            <label>Server Name</label>
+            <input type="text" name="ServerName" class="form-control" placeholder="Server IP" value="{{config.ServerName}}">
+        </div>
+
+        <div class="form-group">
+            <label>Server Port</label>
+            <input type="text" name="ServerPort" class="form-control" placeholder="Port" value="{{config.ServerPort}}">
+        </div>
+        <div class="form-group">
+            <label>User Name</label>
+            <input type="text" name="UserName" class="form-control" placeholder="User Name" value="{{config.UserName}}">
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="text" name="Password" class="form-control" placeholder="Password" value="{{config.Password}}">
+        </div>
+        <div class="form-group">
+            <label>Database Name</label>
+            <input type="text" name="DatabaseName" class="form-control" placeholder="Database Name" value="{{config.DatabaseName}}">
+        </div>
+        <div class="form-group">
+            <label>Client Version</label>
+            <input type="DatabaseName" name="ClientVersion" class="form-control" placeholder="Client Version" value="{{config.ClientVersion}}">
+        </div>
+        <div class="form-group">
+            <label>Total Connections</label>
+            <input type="text" name="TotalConnections" class="form-control" placeholder="Total Connections" value="{{config.TotalConnections}}">
+        </div>
+        <div class="form-group">
+            <label>Concurrency</label>
+            <input type="text" name="Concurrency" class="form-control" placeholder="Concurrency" value="{{config.Concurrency}}">
+        </div>
+        <div class="form-group">
+            <label>Absolute File Path</label>
+            <input type="text" name="AbsoluteFilePath" class="form-control" placeholder="Absolute File Path" value="{{config.AbsoluteFilePath}}">
+        </div>
+        <button type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
+    </form>
+</template>

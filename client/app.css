@@ -1,0 +1,16 @@
+.configButtons{
+    margin:20px 0;
+}
+
+.configContainer{
+    text-align: center;
+}
+
+.configForm{
+    margin:30px;
+}
+
+.appPanel{
+    height:500px;
+    overflow: auto;
+}

@@ -19,9 +19,11 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">Config Form</h3>
                 </div>
-                {{#with formData}}
-                    {{ > newConfigForm }}
-                {{/with}}
+                <div class="panel-body">
+                    {{#with formData}}
+                        {{ > newConfigForm }}
+                    {{/with}}
+                </div>
             </div>
         </div>
         <div class="col-md-6">
@@ -29,12 +31,19 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">Output</h3>
                 </div>
-                <div class="output">
+                <div class="panel-body output">
                     {{#each output}}
                         <p>{{message}}</p>
                     {{/each}}
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="buttonPanel panel panel-default col-md-5">
+        <div class="panel-body">
+            <button type="button" class="submitForm btn btn-success">Run Script</button>
+            <button type="button" class=" saveConfig btn btn-success">Save Config</button>
+            <button type="button" class=" deleteConfig btn btn-success">Delete Config</button>
         </div>
     </div>
 </div>

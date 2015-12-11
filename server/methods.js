@@ -29,6 +29,7 @@ Meteor.methods({
         var buffers = [];
         stream.on('data', function(buffer) {
             buffers.push(buffer);
+            notifications.emit('loading');
             notifications.emit('message', buffer.toString());
         });
         stream.on('end', function() {

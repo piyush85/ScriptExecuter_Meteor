@@ -6,6 +6,25 @@ Meteor.startup(function() {
         // create sample polls
         var sampleConfig = [
             {
+                ConfigName:"Blank Config",
+                IP:"",
+                User:"",
+                pass:"",
+                ScriptPath:"",
+                ScriptName: "",
+                config: {
+                    ServerName:"",
+                    ServerPort:"",
+                    UserName:"",
+                    Password:"",
+                    DatabaseName:"",
+                    ClientVersion:"",
+                    TotalConnections:"",
+                    Concurrency:"",
+                    AbsoluteFilePath:""
+                }
+            },
+            {
                 ConfigName:"CONFIG 1",
                 IP:"10.11.0.72",
                 User:"root",

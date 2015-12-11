@@ -6,11 +6,25 @@
     text-align: center;
 }
 
-.configForm{
-    margin:30px;
+.appPanel .panel-body{
+    height:400px;
+    overflow: auto;
 }
 
-.appPanel{
-    height:500px;
-    overflow: auto;
+.form-group{
+    margin:20px 0;
+}
+.form-group div{
+    margin:5px 0;
+}
+.configForm label, .hostConfigForm label{
+    width:160px;
+}
+.textLabel{
+    text-align: center;
+    color:red;
+}
+
+.buttonPanel{
+    text-align: center;
 }

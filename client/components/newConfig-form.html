@@ -1,42 +1,73 @@
 <template name="newConfigForm">
-    <form class="configForm">
+    <div class="textLabel">Host Config</div>
+    <form class="hostConfigForm form-inline" role="form">
         <div class="form-group">
-            <label>Server Name</label>
-            <input type="text" name="ServerName" class="form-control" placeholder="Server IP" value="{{config.ServerName}}">
+            <div >
+                <label>Config Name</label>
+                <input type="text" name="ConfigName" class="form-control" placeholder="Config Name" value="{{ConfigName}}">
+            </div>
+            <div >
+                <label>Host</label>
+                <input type="text" name="IP" class="form-control" placeholder="Host Server IP" value="{{IP}}">
+            </div>
+            <div >
+                <label>Host User</label>
+                <input type="text" name="User" class="form-control" placeholder="Host User Name" value="{{User}}">
+            </div>
+            <div >
+                <label>Host Password</label>
+                <input type="text" name="pass" class="form-control" placeholder="Host Password" value="{{pass}}">
+            </div>
+            <div >
+                <label>Script Path</label>
+                <input type="text" name="ScriptPath" class="form-control" placeholder="Script Path" value="{{ScriptPath}}">
+            </div>
+            <div >
+                <label>Script Name</label>
+                <input type="text" name="ScriptName" class="form-control" placeholder="Script Name" value="{{ScriptName}}">
+            </div>
         </div>
+        </form>
+    <div class="textLabel">Script Config</div>
+        <form class="configForm form-inline" role="form">
+            <div class="form-group">
+                <div >
+                    <label>Server Name</label>
+                    <input type="text" name="ServerName" class="form-control" placeholder="Server IP" value="{{config.ServerName}}">
+                </div>
+                <div >
+                    <label>Server Port</label>
+                    <input type="text" name="ServerPort" class="form-control" placeholder="Port" value="{{config.ServerPort}}">
+                </div>
+                <div >
+                    <label>User Name</label>
+                    <input type="text" name="UserName" class="form-control" placeholder="User Name" value="{{config.UserName}}">
+                </div>
+                <div >
+                    <label>Password</label>
+                    <input type="text" name="Password" class="form-control" placeholder="Password" value="{{config.Password}}">
+                </div>
+                <div >
+                    <label>Database Name</label>
+                    <input type="text" name="DatabaseName" class="form-control" placeholder="Database Name" value="{{config.DatabaseName}}">
+                </div>
+                <div >
+                    <label>Client Version</label>
+                    <input type="DatabaseName" name="ClientVersion" class="form-control" placeholder="Client Version" value="{{config.ClientVersion}}">
+                </div>
+                <div >
+                    <label>Total Connections</label>
+                    <input type="text" name="TotalConnections" class="form-control" placeholder="Total Connections" value="{{config.TotalConnections}}">
+                </div>
+                <div >
+                    <label>Concurrency</label>
+                    <input type="text" name="Concurrency" class="form-control" placeholder="Concurrency" value="{{config.Concurrency}}">
+                </div>
+                <div >
+                    <label>Absolute File Path</label>
+                    <input type="text" name="AbsoluteFilePath" class="form-control" placeholder="Absolute File Path" value="{{config.AbsoluteFilePath}}">
+                </div>
+            </div>
 
-        <div class="form-group">
-            <label>Server Port</label>
-            <input type="text" name="ServerPort" class="form-control" placeholder="Port" value="{{config.ServerPort}}">
-        </div>
-        <div class="form-group">
-            <label>User Name</label>
-            <input type="text" name="UserName" class="form-control" placeholder="User Name" value="{{config.UserName}}">
-        </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input type="text" name="Password" class="form-control" placeholder="Password" value="{{config.Password}}">
-        </div>
-        <div class="form-group">
-            <label>Database Name</label>
-            <input type="text" name="DatabaseName" class="form-control" placeholder="Database Name" value="{{config.DatabaseName}}">
-        </div>
-        <div class="form-group">
-            <label>Client Version</label>
-            <input type="DatabaseName" name="ClientVersion" class="form-control" placeholder="Client Version" value="{{config.ClientVersion}}">
-        </div>
-        <div class="form-group">
-            <label>Total Connections</label>
-            <input type="text" name="TotalConnections" class="form-control" placeholder="Total Connections" value="{{config.TotalConnections}}">
-        </div>
-        <div class="form-group">
-            <label>Concurrency</label>
-            <input type="text" name="Concurrency" class="form-control" placeholder="Concurrency" value="{{config.Concurrency}}">
-        </div>
-        <div class="form-group">
-            <label>Absolute File Path</label>
-            <input type="text" name="AbsoluteFilePath" class="form-control" placeholder="Absolute File Path" value="{{config.AbsoluteFilePath}}">
-        </div>
-        <button type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
     </form>
 </template>

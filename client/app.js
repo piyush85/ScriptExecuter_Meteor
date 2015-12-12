@@ -1,13 +1,35 @@
 notificationCollection = new Meteor.Collection(null);
-
-notifications.on('message', function(message) {
-    notificationCollection.insert({
-        message: message
+var configLoad = function(config){
+    $(".configButtons[value='"+config+"']").trigger("click");
+};
+Meteor.startup(function () {
+    notifications.on('message', function(message) {
+        notificationCollection.insert({
+            message: message
+        });
+    });
+    notifications.on('loading', function(message) {
+        notificationCollection.remove({});
+    });
+    notifications.on('error', function(message) {
+        notificationCollection.remove({});
+        notificationCollection.insert({
+            error: message
+        });
+    });
+    sAlert.config({
+        effect: 'jelly',
+        position: 'top-right',
+        timeout: 5000,
+        html: false,
+        onRouteClose: true,
+        stack: true,
+        beep: false
     });
 });
-notifications.on('loading', function(message) {
-    notificationCollection.remove({});
-});
+Template.config.rendered = function(){
+    configLoad("Blank Config");
+};
 Template.body.helpers({
 
     configs: function() {
@@ -47,11 +69,17 @@ Template.body.events({
         var document = Config.findOne({ConfigName:config.ConfigName});
         if(!document){
             Config.insert(config);
-            alert("config added successfully");
+            sAlert.success("config added successfully");
         }else{
-            Config.update(document._id,config);
-            alert("config updated successfully");
+            if(config.ConfigName !== "Blank Config" ){
+                Config.update(document._id,config);
+                sAlert.success("config updated successfully");
+            }else{
+                sAlert.warning("Blank Config cannot be updated, please select a new config name");
+            }
+
         }
+       configLoad(config.ConfigName);
     },
     'click .deleteConfig' : function(){
         var config = $('.hostConfigForm').serializeArray().reduce(function(obj, item) {
@@ -60,14 +88,15 @@ Template.body.events({
         }, {});
         var document = Config.findOne({ConfigName:config.ConfigName});
         if(document){
-            if(Config.find().count() === 1){
-                alert("cannot delete last config");
+            if(Config.find().count() === 1 || config.ConfigName === "Blank Config"){
+                sAlert.warning("cannot delete Blank Config");
             }else{
                 Config.remove(document._id);
-                alert("config deleted successfully");
+                sAlert.success("config deleted successfully");
+                configLoad("Blank Config");
             }
         }else{
-            alert("config not found");
+            sAlert.error("config not found");
         }
     },
     'submit form': function(event) {

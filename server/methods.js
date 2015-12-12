@@ -36,5 +36,8 @@ Meteor.methods({
             var buffer = Buffer.concat(buffers);
             //notifications.emit('message', buffer.toString());
        });
+        stream.on('error', function(error) {
+            notifications.emit('error', error.toString());
+        });
     }
 });

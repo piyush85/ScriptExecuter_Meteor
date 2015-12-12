@@ -74,6 +74,11 @@
         <item url="file://$USER_HOME$/.meteor/packages/base64/1.0.4/web.browser/base64.js" />
         <item url="file://$USER_HOME$/.meteor/packages/babel-runtime/0.1.4/web.browser/babel-runtime.js" />
         <item url="file://$USER_HOME$/.meteor/packages/autoupdate/1.2.4/web.browser/autoupdate_client.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/juliancwirko_s-alert-jelly/3.1.2/web.browser/s-alert-jelly.css" />
+        <item url="file://$USER_HOME$/.meteor/packages/juliancwirko_s-alert/3.1.2/web.browser/client/s-alert-template.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/juliancwirko_s-alert/3.1.2/web.browser/client/s-alert-collection.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/juliancwirko_s-alert/3.1.2/web.browser/client/s-alert.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/juliancwirko_s-alert/3.1.2/web.browser/client/s-alert-default.css" />
         <item url="file://$USER_HOME$/.meteor/packages/observe-sequence/1.0.7/web.browser/observe_sequence.js" />
         <item url="file://$USER_HOME$/.meteor/packages/mongo-id/1.0.1/web.browser/id.js" />
         <item url="file://$USER_HOME$/.meteor/packages/meteorhacks_npm/1.5.0/web.browser/packages/meteorhacks_npm.js" />
@@ -182,6 +187,11 @@
       <root url="file://$USER_HOME$/.meteor/packages/base64/1.0.4/web.browser/base64.js" />
       <root url="file://$USER_HOME$/.meteor/packages/babel-runtime/0.1.4/web.browser/babel-runtime.js" />
       <root url="file://$USER_HOME$/.meteor/packages/autoupdate/1.2.4/web.browser/autoupdate_client.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/juliancwirko_s-alert-jelly/3.1.2/web.browser/s-alert-jelly.css" />
+      <root url="file://$USER_HOME$/.meteor/packages/juliancwirko_s-alert/3.1.2/web.browser/client/s-alert-template.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/juliancwirko_s-alert/3.1.2/web.browser/client/s-alert-collection.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/juliancwirko_s-alert/3.1.2/web.browser/client/s-alert.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/juliancwirko_s-alert/3.1.2/web.browser/client/s-alert-default.css" />
       <root url="file://$USER_HOME$/.meteor/packages/observe-sequence/1.0.7/web.browser/observe_sequence.js" />
       <root url="file://$USER_HOME$/.meteor/packages/mongo-id/1.0.1/web.browser/id.js" />
       <root url="file://$USER_HOME$/.meteor/packages/meteorhacks_npm/1.5.0/web.browser/packages/meteorhacks_npm.js" />

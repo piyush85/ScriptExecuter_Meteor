@@ -7,7 +7,6 @@
 }
 
 .appPanel .panel-body{
-    height:400px;
     overflow: auto;
 }
 
@@ -22,9 +21,25 @@
 }
 .textLabel{
     text-align: center;
-    color:red;
+    color: #159410;
 }
 
 .buttonPanel{
     text-align: center;
+}
+
+.error{
+    color:red;
+}
+
+@media all and (max-width: 1400px){
+    .appPanel .panel-body{
+        height:400px;
+    }
+}
+
+@media not all and (max-width: 1400px) {
+    .appPanel .panel-body{
+        height:800px;
+    }
 }

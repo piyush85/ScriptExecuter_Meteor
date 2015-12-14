@@ -7,9 +7,10 @@ Meteor.startup(function () {
         notificationCollection.insert({
             message: message
         });
+        $(".output")[0].scrollTop = $(".output")[0].scrollHeight;
     });
     notifications.on('loading', function(message) {
-        notificationCollection.remove({});
+        notificationCollection.remove({message:"Loading..."});
     });
     notifications.on('error', function(message) {
         notificationCollection.remove({});
@@ -26,6 +27,7 @@ Meteor.startup(function () {
         stack: true,
         beep: false
     });
+
 });
 Template.config.rendered = function(){
     configLoad("Blank Config");

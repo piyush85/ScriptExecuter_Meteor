@@ -40,6 +40,6 @@
 
 @media not all and (max-width: 1400px) {
     .appPanel .panel-body{
-        height:800px;
+        height:600px;
     }
 }

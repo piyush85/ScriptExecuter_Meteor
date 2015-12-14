@@ -7,7 +7,8 @@ Meteor.methods({
         var commandStr = data.ScriptPath + data.ScriptName;
 
         for (var conf in data.config){
-            commandStr += " " + data.config[conf];
+            if(data.config[conf])
+            commandStr += " " + conf +":"+data.config[conf];
         }
         var connection_options = {
             host:data.IP,
@@ -23,8 +24,9 @@ Meteor.methods({
         var cmds = [
             commandStr
         ];
+
         var stream = process.stdin
-            .pipe(exec(commandStr, connection_options))
+            .pipe(exec(commandStr, connection_options));
 
         var buffers = [];
         stream.on('data', function(buffer) {

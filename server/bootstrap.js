@@ -7,6 +7,7 @@ Meteor.startup(function() {
         var sampleConfig = [
             {
                 ConfigName:"Blank Config",
+                ConfType:"DbServer",
                 IP:"",
                 User:"",
                 pass:"",
@@ -22,10 +23,12 @@ Meteor.startup(function() {
                     TotalConnections:"",
                     Concurrency:"",
                     AbsoluteFilePath:""
-                }
+                },
+                createdBy:"qFJdcSHb5Rcuv2F3r"
             },
             {
                 ConfigName:"CONFIG 1",
+                ConfType:"DbServer",
                 IP:"10.11.0.72",
                 User:"root",
                 pass:"r00t.!@#",
@@ -41,10 +44,12 @@ Meteor.startup(function() {
                     TotalConnections:"1",
                     Concurrency:"1",
                     AbsoluteFilePath:"/home/idb/javaClient/testcase.sql"
-                }
+                },
+                createdBy:"qFJdcSHb5Rcuv2F3r"
             },
             {
                 ConfigName:"CONFIG 2",
+                ConfType:"DbServer",
                 IP:"10.11.0.227",
                 User:"root",
                 pass:"r00t.!@#",
@@ -60,10 +65,12 @@ Meteor.startup(function() {
                     TotalConnections:"1",
                     Concurrency:"1",
                     AbsoluteFilePath:"/home/idb/javaClient/testcase.sql"
-                }
+                },
+                createdBy:"qFJdcSHb5Rcuv2F3r"
             },
             {
                 ConfigName: "CONFIG 3",
+                ConfType:"DbServer",
                 IP: "10.0.53.10",
                 User: "idb",
                 pass: "r00t.!@#",
@@ -79,7 +86,8 @@ Meteor.startup(function() {
                     TotalConnections: "1",
                     Concurrency: "1",
                     AbsoluteFilePath: "/home/idb/javaClient/testcase.sql"
-                }
+                },
+                createdBy:"qFJdcSHb5Rcuv2F3r"
             }
         ];
 

@@ -1,7 +1,6 @@
-.configButtons{
-    margin:20px 0;
+.configContainer .panel{
+    margin : 10px;
 }
-
 .configContainer{
     text-align: center;
 }
@@ -32,6 +31,12 @@
     color:red;
 }
 
+.login{
+    margin:10px 0 10px 20px;
+}
+#forgot-password-link{
+    display:none;
+}
 @media all and (max-width: 1400px){
     .appPanel .panel-body{
         height:400px;

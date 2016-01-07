@@ -1,3 +1,70 @@
 <template name="config">
+    <div class="row">
+        <div class="col-sm-5">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="btn-group">
+                        <button type="button" class="configDD btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="ddText">{{selectedHost}}</span>&nbsp;&nbsp;<span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            {{#each configs}}
+                                {{>hosts}}
+                            {{/each}}
+                        </ul>
+                    </div>
+                    {{#if selectedHost}}
+                        <div class="btn-group">
+                            <button type="button" class="configDD btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="ddText">{{selectedConfigType}}</span>&nbsp;&nbsp;<span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                {{#each configTypes}}
+                                    {{>configType}}
+                                {{/each}}
+                            </ul>
+                        </div>
+                    {{/if}}
+                    {{#if selectedConfigType}}
+                        <div class="btn-group">
+                            <button type="button" class="configDD btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="ddText">{{selectedIP}}</span>&nbsp;&nbsp;<span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                {{#each IPs}}
+                                    {{>IP}}
+                                {{/each}}
+                            </ul>
+                        </div>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-7">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    {{#if selectedIP}}
+                        {{#each filterConfigs}}
+                            {{>configButton}}
+                        {{/each}}
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</template>
+
+<template name="hosts">
+    <li><a class="hostIP" id="host_{{IP}}" href="#">{{IP}}</a></li>
+</template>
+<template name="configType">
+    <li><a class="configType" id="host_{{ConfType}}" href="#">{{ConfType}}</a></li>
+</template>
+<template name="IP">
+    <li><a class="serverIP" id="host_{{config.ServerName}}" href="#">{{config.ServerName}}</a></li>
+</template>
+<template name="configButton">
     <Button class="configButtons btn btn-default" value="{{ConfigName}}" type="button" >{{ConfigName}}</Button>
 </template>

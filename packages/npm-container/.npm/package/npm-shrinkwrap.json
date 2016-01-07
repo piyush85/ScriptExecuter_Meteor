@@ -20,7 +20,7 @@
               }
             },
             "readable-stream": {
-              "version": "2.0.4",
+              "version": "2.0.5",
               "dependencies": {
                 "core-util-is": {
                   "version": "1.0.2"
@@ -45,7 +45,7 @@
           }
         },
         "ssh2": {
-          "version": "0.4.12",
+          "version": "0.4.13",
           "dependencies": {
             "readable-stream": {
               "version": "1.0.33",
@@ -65,7 +65,7 @@
               }
             },
             "ssh2-streams": {
-              "version": "0.0.19",
+              "version": "0.0.21",
               "dependencies": {
                 "streamsearch": {
                   "version": "0.1.2"

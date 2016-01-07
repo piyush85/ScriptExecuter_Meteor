@@ -7,6 +7,14 @@
                 <input type="text" name="ConfigName" class="form-control" placeholder="Config Name" value="{{ConfigName}}">
             </div>
             <div >
+                <label>Config Type</label>
+                <select name="ConfType" class="form-control">
+                    <option selected="{{isEqual ConfType 'DbServer'}}" value="DbServer">DB Server</option>
+                    <option selected="{{isEqual ConfType 'Scalearc'}}" value="Scalearc">Scalearc</option>
+                    <option selected="{{isEqual ConfType 'Proxy'}}" value="Proxy">Proxy</option>
+                </select>
+            </div>
+            <div >
                 <label>Host</label>
                 <input type="text" name="IP" class="form-control" placeholder="Host Server IP" value="{{IP}}">
             </div>

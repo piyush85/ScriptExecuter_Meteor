@@ -3,20 +3,27 @@ var configLoad = function(config){
     $(".configButtons[value='"+config+"']").trigger("click");
 };
 Meteor.startup(function () {
-    notifications.on('message', function(message) {
-        notificationCollection.insert({
-            message: message
-        });
-        $(".output")[0].scrollTop = $(".output")[0].scrollHeight;
+    Meteor.subscribe("Config");
+    notifications.on('message', function(message, userId) {
+        if(userId === Meteor.userId()){
+            notificationCollection.insert({
+                message: message
+            });
+            $(".output")[0].scrollTop = $(".output")[0].scrollHeight;
+        }
     });
-    notifications.on('loading', function(message) {
-        notificationCollection.remove({message:"Loading..."});
+    notifications.on('loading', function(userId) {
+        if(userId === Meteor.userId()){
+            notificationCollection.remove({message:"Loading..."});
+        }
     });
-    notifications.on('error', function(message) {
-        notificationCollection.remove({});
-        notificationCollection.insert({
-            error: message
-        });
+    notifications.on('error', function(message, userId) {
+        if(userId === Meteor.userId()){
+            notificationCollection.remove({});
+            notificationCollection.insert({
+                error: message
+            });
+        }
     });
     sAlert.config({
         effect: 'jelly',
@@ -32,10 +39,57 @@ Meteor.startup(function () {
 Template.config.rendered = function(){
     configLoad("Blank Config");
 };
-Template.body.helpers({
-
+Template.config.helpers({
     configs: function() {
-        return Config.find();
+        return Config.find({createdBy: Meteor.userId()}).fetch();
+    },
+    selectedHost: function(){
+        return Session.get('chosenHost') || "Host";
+    },
+    configTypes: function(){
+        return Config.find({createdBy: Meteor.userId(), IP:Session.get('chosenHost')}).fetch();
+    },
+    selectedConfigType: function(){
+        return Session.get('chosenConfigType') || "Config Type";
+    },
+    IPs: function(){
+        return Config.find({createdBy: Meteor.userId(), IP:Session.get('chosenHost')}).fetch();
+    },
+    selectedIP: function(){
+        return Session.get('chosenIP') || "Server Name";
+    },
+    filterConfigs: function(){
+        return [Config.findOne({ConfigName:"Blank Config"})].concat(Config.find({createdBy: Meteor.userId(), IP:Session.get('chosenHost'),
+            "config.ServerName":Session.get('chosenIP')}).fetch());
+    }
+});
+
+Template.config.events({
+    'click .hostIP' : function(event){
+        var host =  event.target.text;
+        Session.set('chosenConfigType', "");
+        Session.set('chosenIP', "");
+        return Session.set('chosenHost',host);
+    },
+    'click .configType' : function(event){
+        var configType =  event.target.text;
+        Session.set('chosenIP', "");
+        return Session.set('chosenConfigType', configType);
+    },
+    'click .serverIP' : function(event){
+        var serverName =  event.target.text;
+        return Session.set('chosenIP', serverName);
+    }
+});
+
+Template.newConfigForm.helpers({
+    isEqual:function (lhs, rhs) {
+        return lhs === rhs;
+    }
+})
+Template.body.helpers({
+    IP: function(){
+      return Config.find({});
     },
     formData: function() {
         return Config.findOne(Session.get('chosenConfig'));
@@ -68,6 +122,7 @@ Template.body.events({
             return obj;
         }, {});
         config["config"] = scriptConfig;
+        config["createdBy"] = Meteor.userId();
         var document = Config.findOne({ConfigName:config.ConfigName});
         if(!document){
             Config.insert(config);

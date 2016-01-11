@@ -59,8 +59,8 @@ Template.config.helpers({
         return Session.get('chosenIP') || "Server Name";
     },
     filterConfigs: function(){
-        return [Config.findOne({ConfigName:"Blank Config"})].concat(Config.find({createdBy: Meteor.userId(), IP:Session.get('chosenHost'),
-            "config.ServerName":Session.get('chosenIP')}).fetch());
+        return Config.find({$or:[{ConfigName:"Blank Config"},{createdBy: Meteor.userId(), IP:Session.get('chosenHost'),
+            "config.ServerName":Session.get('chosenIP')}]});
     }
 });
 

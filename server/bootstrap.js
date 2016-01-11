@@ -26,7 +26,6 @@ Meteor.startup(function() {
                 }
             }
         ];
-
         // loop over each sample poll and insert into database
         _.each(sampleConfig, function(config) {
             document = Config.findOne({ConfigName:config.ConfigName});

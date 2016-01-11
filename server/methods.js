@@ -6,7 +6,7 @@ notifications.permissions.write(function(eventName) {
     return true;
 });
 Meteor.publish("Config", function () {
-    return Config.find({createdBy:this.userId});
+    return Config.find({$or:[{createdBy:this.userId},{ConfigName:"Blank Config"}]});
 });
 Meteor.methods({
     runScript: function (data) {

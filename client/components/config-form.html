@@ -8,6 +8,8 @@
                             <span class="ddText">{{selectedHost}}</span>&nbsp;&nbsp;<span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
+                            <li><a class="hostIP" data-id="" href="#">All</a></li>
+                            <li role="separator" class="divider"></li>
                             {{#each configs}}
                                 {{>hosts}}
                             {{/each}}
@@ -18,6 +20,8 @@
                                 <span class="ddText">{{selectedConfigType}}</span>&nbsp;&nbsp;<span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
+                                <li><a class="configType" data-id="" href="#">All</a></li>
+                                <li role="separator" class="divider"></li>
                                 {{#each configTypes}}
                                     {{>configType}}
                                 {{/each}}
@@ -41,10 +45,10 @@
 </template>
 
 <template name="hosts">
-    <li><a class="hostIP" id="host_{{_id}}" href="#">{{_id}}</a></li>
+    <li><a class="hostIP" data-id="{{_id}}" href="#">{{_id}}</a></li>
 </template>
 <template name="configType">
-    <li><a class="configType" id="host_{{_id}}" href="#">{{_id}}</a></li>
+    <li><a class="configType" data-id="{{_id}}" href="#">{{_id}}</a></li>
 </template>
 <template name="configButton">
     <Button class="configButtons btn btn-default" value="{{ConfigName}}" type="button" >{{ConfigName}}</Button>

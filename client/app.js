@@ -39,9 +39,13 @@ Meteor.startup(function () {
 Template.config.rendered = function(){
     configLoad("Blank Config");
 };
-Meteor.call("aggregatedHosts", function(err,res){
-    Session.set("aggHosts", res);
-});
+
+var fetchAggHosts = function(){
+    Meteor.call("aggregatedHosts", function(err,res){
+        Session.set("aggHosts", res);
+    });
+};
+fetchAggHosts();
 Template.config.helpers({
     configs: function() {
         return Session.get("aggHosts");
@@ -56,22 +60,33 @@ Template.config.helpers({
         return Session.get('chosenConfigType') || "Config Type";
     },
     filterConfigs: function(){
-        return Config.find({$or:[{ConfigName:"Blank Config"},{IP:Session.get('chosenHost'), ConfType:Session.get("chosenConfigType")}]});
+        var host = Session.get('chosenHost'),
+            confType = Session.get("chosenConfigType");
+        if(host && confType && host!=="All" && confType!=="All"){
+            return Config.find({$or:[{ConfigName:"Blank Config"},{IP:Session.get('chosenHost'), ConfType:Session.get("chosenConfigType")}]});
+        }else if(host === "All" && confType !=="All"){
+            return Config.find({$or:[{ConfigName:"Blank Config"},{ConfType:Session.get("chosenConfigType")}]});
+        }else if(host !== "All" && confType ==="All"){
+            return Config.find({$or:[{ConfigName:"Blank Config"},{IP:Session.get('chosenHost')}]});
+        } else if(confType === "All"){
+            return Config.find({});
+        }
+        return Config.find({ConfigName:"Blank Config"});
     }
 });
 
 Template.config.events({
     'click .hostIP' : function(event){
-        var host =  event.target.text;
+        var host =  event.target.getAttribute("data-id");
         Session.set('chosenConfigType', "");
         Meteor.call("aggregatedConfType", host, function(err,res){
             Session.set("aggregatedConfType", res);
         });
-        return Session.set('chosenHost',host);
+        return Session.set('chosenHost', event.target.text);
     },
     'click .configType' : function(event){
-        var configType =  event.target.text;
-        return Session.set('chosenConfigType', configType);
+        var configType =  event.target.getAttribute("data-id");
+        return Session.set('chosenConfigType', event.target.text);
     }
 });
 
@@ -130,6 +145,7 @@ Template.body.events({
 
         }
        configLoad(config.ConfigName);
+        fetchAggHosts();
     },
     'click .deleteConfig' : function(){
         var config = $('.hostConfigForm').serializeArray().reduce(function(obj, item) {
@@ -148,6 +164,7 @@ Template.body.events({
         }else{
             sAlert.error("config not found");
         }
+        fetchAggHosts();
     },
     'submit form': function(event) {
         event.preventDefault();

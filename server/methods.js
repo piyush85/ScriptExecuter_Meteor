@@ -5,6 +5,20 @@ notifications.permissions.read(function(eventName) {
 notifications.permissions.write(function(eventName) {
     return true;
 });
+Config.allow({
+    'insert': function (userId,doc) {
+        /* user and doc checks ,
+         return true to allow insert */
+        return true;
+    },
+    'update': function(){
+        return true;
+    },
+    'remove': function(){
+        return true;
+    }
+});
+
 Meteor.publish("Config", function () {
     return Config.find({$or:[{createdBy:this.userId},{ConfigName:"Blank Config"}]});
 });

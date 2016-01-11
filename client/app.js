@@ -129,7 +129,7 @@ Template.body.events({
             sAlert.success("config added successfully");
         }else{
             if(config.ConfigName !== "Blank Config" ){
-                Config.update(document._id,config);
+                Config.update({_id:document._id}, {$set: config});
                 sAlert.success("config updated successfully");
             }else{
                 sAlert.warning("Blank Config cannot be updated, please select a new config name");

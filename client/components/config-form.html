@@ -43,11 +43,9 @@
         <div class="col-sm-7">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    {{#if selectedIP}}
-                        {{#each filterConfigs}}
-                            {{>configButton}}
-                        {{/each}}
-                    {{/if}}
+                    {{#each filterConfigs}}
+                        {{>configButton}}
+                    {{/each}}
                 </div>
             </div>
         </div>

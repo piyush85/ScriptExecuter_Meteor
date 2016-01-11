@@ -23,6 +23,12 @@ Meteor.publish("Config", function () {
     return Config.find({$or:[{createdBy:this.userId},{ConfigName:"Blank Config"}]});
 });
 Meteor.methods({
+    aggregatedHosts: function(){
+        return Config.aggregate([{$match:{createdBy:this.userId}},{$group:{_id:"$IP"}}]);
+    },
+    aggregatedConfType: function(host){
+        return Config.aggregate([{$match:{createdBy:this.userId, IP:host}},{$group:{_id:"$ConfType"}}]);
+    },
     runScript: function (data) {
         var commandStr = data.ScriptPath + data.ScriptName,
             userId = this.userId;

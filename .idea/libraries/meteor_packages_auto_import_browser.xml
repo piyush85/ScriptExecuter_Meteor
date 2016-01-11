@@ -80,6 +80,7 @@
         <item url="file://$USER_HOME$/.meteor/packages/url/1.0.5/web.browser/url_common.js" />
         <item url="file://$USER_HOME$/.meteor/packages/service-configuration/1.0.5/web.browser/service_configuration_common.js" />
         <item url="file://$USER_HOME$/.meteor/packages/arunoda_streams/0.1.17/web.browser/packages/arunoda:streams.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/monbro_mongodb-mapreduce-aggregation/1.0.1/web.browser/packages/monbro:mongodb-mapreduce-aggregation.js" />
         <item url="file://$USER_HOME$/.meteor/packages/rate-limit/1.0.0/web.browser/rate-limit.js" />
         <item url="file://$USER_HOME$/.meteor/packages/underscore/1.0.4/web.browser/post.js" />
         <item url="file://$USER_HOME$/.meteor/packages/underscore/1.0.4/web.browser/pre.js" />
@@ -216,6 +217,7 @@
       <root url="file://$USER_HOME$/.meteor/packages/url/1.0.5/web.browser/url_common.js" />
       <root url="file://$USER_HOME$/.meteor/packages/service-configuration/1.0.5/web.browser/service_configuration_common.js" />
       <root url="file://$USER_HOME$/.meteor/packages/arunoda_streams/0.1.17/web.browser/packages/arunoda:streams.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/monbro_mongodb-mapreduce-aggregation/1.0.1/web.browser/packages/monbro:mongodb-mapreduce-aggregation.js" />
       <root url="file://$USER_HOME$/.meteor/packages/rate-limit/1.0.0/web.browser/rate-limit.js" />
       <root url="file://$USER_HOME$/.meteor/packages/underscore/1.0.4/web.browser/post.js" />
       <root url="file://$USER_HOME$/.meteor/packages/underscore/1.0.4/web.browser/pre.js" />

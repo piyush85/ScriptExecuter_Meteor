@@ -39,28 +39,24 @@ Meteor.startup(function () {
 Template.config.rendered = function(){
     configLoad("Blank Config");
 };
+Meteor.call("aggregatedHosts", function(err,res){
+    Session.set("aggHosts", res);
+});
 Template.config.helpers({
     configs: function() {
-        return Config.find({createdBy: Meteor.userId()}).fetch();
+        return Session.get("aggHosts");
     },
     selectedHost: function(){
         return Session.get('chosenHost') || "Host";
     },
     configTypes: function(){
-        return Config.find({createdBy: Meteor.userId(), IP:Session.get('chosenHost')}).fetch();
+        return Session.get("aggregatedConfType");
     },
     selectedConfigType: function(){
         return Session.get('chosenConfigType') || "Config Type";
     },
-    IPs: function(){
-        return Config.find({createdBy: Meteor.userId(), IP:Session.get('chosenHost')}).fetch();
-    },
-    selectedIP: function(){
-        return Session.get('chosenIP') || "Server Name";
-    },
     filterConfigs: function(){
-        return Config.find({$or:[{ConfigName:"Blank Config"},{createdBy: Meteor.userId(), IP:Session.get('chosenHost'),
-            "config.ServerName":Session.get('chosenIP')}]});
+        return Config.find({$or:[{ConfigName:"Blank Config"},{IP:Session.get('chosenHost'), ConfType:Session.get("chosenConfigType")}]});
     }
 });
 
@@ -68,17 +64,14 @@ Template.config.events({
     'click .hostIP' : function(event){
         var host =  event.target.text;
         Session.set('chosenConfigType', "");
-        Session.set('chosenIP', "");
+        Meteor.call("aggregatedConfType", host, function(err,res){
+            Session.set("aggregatedConfType", res);
+        });
         return Session.set('chosenHost',host);
     },
     'click .configType' : function(event){
         var configType =  event.target.text;
-        Session.set('chosenIP', "");
         return Session.set('chosenConfigType', configType);
-    },
-    'click .serverIP' : function(event){
-        var serverName =  event.target.text;
-        return Session.set('chosenIP', serverName);
     }
 });
 

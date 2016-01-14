@@ -34,12 +34,13 @@ Meteor.startup(function () {
         stack: true,
         beep: false
     });
-
 });
 Template.config.rendered = function(){
     configLoad("Blank Config");
 };
-
+Template.configButton.onRendered(function(){
+    this.$('.configButtons').tooltip({'container': 'span'});
+})
 var fetchAggHosts = function(){
     Meteor.call("aggregatedHosts", function(err,res){
         Session.set("aggHosts", res);
@@ -74,7 +75,6 @@ Template.config.helpers({
         return Config.find({ConfigName:"Blank Config"});
     }
 });
-
 Template.config.events({
     'click .hostIP' : function(event){
         var host =  event.target.getAttribute("data-id");

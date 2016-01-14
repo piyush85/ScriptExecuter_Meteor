@@ -40,8 +40,6 @@
             </div>
         </div>
     </div>
-
-
 </template>
 
 <template name="hosts">
@@ -50,6 +48,6 @@
 <template name="configType">
     <li><a class="configType" data-id="{{_id}}" href="#">{{_id}}</a></li>
 </template>
-<template name="configButton">
-    <Button class="configButtons btn btn-default" value="{{ConfigName}}" type="button" >{{ConfigName}}</Button>
+    <template name="configButton">
+    <Button data-html="true" title="{{config.ServerName}}<br/>{{config.DatabaseName}}<br/>{{config.ClientVersion}}" class="configButtons btn btn-default" value="{{ConfigName}}" type="button" >{{ConfigName}}</Button>
 </template>

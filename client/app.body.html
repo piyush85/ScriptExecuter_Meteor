@@ -18,7 +18,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-5">
             <div class="appPanel panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title">Config Form</h3>
@@ -30,7 +30,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="appPanel panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title">Output</h3>
@@ -43,14 +43,34 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-3">
+            <div class="appPanel panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Run Notes</h3>
+                </div>
+                <div class="panel-body output">
+                    {{#with formData}}
+                        <p>{{{notes}}}</p>
+                    {{/with}}
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="buttonPanel panel panel-default col-md-5">
-        <div class="panel-body">
-            {{#if currentUser}}
-                <button type="button" class="submitForm btn btn-success">Run Script</button>
-                <button type="button" class=" saveConfig btn btn-success">Save Config</button>
-                <button type="button" class=" deleteConfig btn btn-success">Delete Config</button>
-            {{/if}}
+    <div class="row">
+        <div class="buttonPanel panel panel-default col-md-5">
+            <div class="panel-body">
+                {{#if currentUser}}
+                    <button type="button" class="submitForm btn btn-success">Run Script</button>
+                    <button type="button" class=" saveConfig btn btn-success">Save Config</button>
+                    <button type="button" class=" deleteConfig btn btn-success">Delete Config</button>
+                {{/if}}
+            </div>
+        </div>
+        <div class="col-md-5">
+            <textarea class="form-control" rows="5" id="comment" placeholder="Notes"></textarea>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-success" id="saveNote">Save Note</button>
         </div>
     </div>
 </div>

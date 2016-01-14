@@ -1,7 +1,8 @@
-// run this when the meteor app is started
-Meteor.startup(function() {
-    // if there are no polls available create sample data
-    var document;
+(function(){
+    // run this when the meteor app is started
+    Meteor.startup(function() {
+        // if there are no polls available create sample data
+        var document;
 
         // create sample polls
         var sampleConfig = [
@@ -38,4 +39,5 @@ Meteor.startup(function() {
 
         });
 
-});
+    });
+})()
